@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gregory S Chatman</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fade-in 1.2s ease-out both;
+      }
+  </style>
+</head>
+
+<body class="text-gray-900">
+  <!-- Alpine.js for toggle -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <header class="bg-[#011e31] text-white sticky top-0 z-50 shadow-md" x-data="{ open: false }"
+    @click.outside="open = false">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <!-- Logo -->
+      <div class="w-64 md:w-72">
+        <a href="#"><img src="/images/GSC Logo.png" alt="Gregory S Chatman logo" class="w-full h-auto" /></a>
+      </div>
+
+      <!-- Hamburger / Close Icon -->
+      <button @click="open = !open" class="md:hidden text-white focus:outline-none z-50 relative">
+        <template x-if="!open">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </template>
+        <template x-if="open">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </template>
+      </button>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 text-sm">
+        <a href="#about" class="hover:text-[#770000] transition-colors">About</a>
+        <a href="#sermons" class="hover:text-[#770000] transition-colors">Sermons + Shorts</a>
+        <a href="#journey" class="hover:text-[#770000] transition-colors">Journey</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" x-transition class="md:hidden px-6 pb-4 space-y-2" @click="open = false">
+      <a href="#about" class="block py-2 hover:text-[#770000] transition-colors">About</a>
+      <a href="#sermons" class="block py-2 hover:text-[#770000] transition-colors">Sermons + Shorts</a>
+      <a href="#journey" class="block py-2 hover:text-[#770000] transition-colors">Journey</a>
+    </div>
+  </header>
+
+  <section class="relative bg-[#f9f9f6] text-[#011e31] py-16 md:py-18 px-6 md:px-20 overflow-hidden animate-fade-in">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+
+      <!-- Text Content -->
+      <div class="md:col-span-7 relative z-10">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+          From Religion to Sincerity
+        </h1>
+        <div class="w-20 h-1 bg-[#770000] mb-6"></div>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl">
+          Gregory S. Chatman's mission is to help others move beyond religious performance into a sincere, obedient walk
+          with God. The calling on his life is to lift up the Word of God—and nothing else.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#about"
+            class="bg-[#770000] hover:bg-[#5c0000] text-white px-6 py-3 rounded-md font-semibold shadow-md transition">
+            Learn More
+          </a>
+          <a href="#sermons"
+            class="border border-[#770000] text-[#770000] hover:bg-[#770000] hover:text-white px-6 py-3 rounded-md font-semibold transition shadow-md">
+            Watch
+          </a>
+        </div>
+      </div>
+
+      <!-- Image Section -->
+      <div class="md:col-span-5 relative z-10">
+        <div class="rounded-xl shadow-xl border border-gray-200">
+          <img src="/images/GSC Book Cover.jpeg" alt="Book Cover" class="w-full h-auto rounded-md">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#f9f9f6] text-[#011e31] py-20 px-6 animate-fade-in">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl md:text-5xl font-extrabold leading-tight italic">
+        "This is not about religion. It’s about obedience. Hear the Word. Heed the warnings. Get ready for His return."
+      </h2>
+    </div>
+  </section>
+
+  <section id="about" class="relative bg-[#011e31] py-24 px-6 md:px-16 text-white overflow-visible animate-fade-in">
+    <div class="max-w-5xl mx-auto relative flex flex-col items-center">
+
+      <!-- Message Box -->
+      <div class="relative z-10 bg-white text-[#011e31] p-8 md:p-12 rounded-xl shadow-2xl max-w-3xl w-full">
+
+        <!-- Overlapping Image -->
+        <div class="absolute -top-10 -left-10 w-36 md:w-48 z-20">
+          <img src="/images/Greg & Wife.jpg" alt="Greg and Wife"
+            class="rounded-2xl shadow-xl border-4 border-white rotate-[-2deg] object-contain">
+        </div>
+
+
+        <h2 class="text-2xl md:text-3xl font-semibold italic mb-6 text-gray-700 text-right">
+          A message from Gregory S. Chatman
+        </h2>
+
+        <div class="space-y-6 leading-relaxed text-lg md:text-xl">
+          <p class="md:ml-28">My name is Gregory S Chatman. Who I am is unimportant. What I have to say is extremely
+            important. It is so important that we as human beings completely understand the dispensation of our
+            everlasting soul and depends on what it is that the Bible has to say and how we respond. The Bible is
+            conditional.</p>
+
+          <blockquote class="border-l-4 border-[#770000] pl-4 text-[#770000] font-bold text-xl">
+            Obey = Good<br>Disobey = Deadly
+          </blockquote>
+
+          <p>I encourage every human being to pay close attention.</p>
+          <p>I was called by God and licensed in 1996 to preach the Word of God. However I did not want to be
+            indoctrinated in to any particular denomination. Just Bible.</p>
+          <p>My story may be of interest to some because of the call upon my life. You see, when I began in ministry I
+            wanted to be like the famous televangelists of that time that who even proliferate the airwaves today.</p>
+          <p>However as I learned and discerned the scriptures, God snatched that desire out of me. My call has been
+            narrowed to the whole world. No particular denominations.</p>
+          <p>Every one who hears the Word of God<br>I strongly encourage to heed its warnings and receive its blessings.
+          </p>
+
+          <p class="italic text-[#770000]">The enemy has deceived the world. Everyone is chasing the wrong things. Don’t
+            get caught chasing the wrong wind.</p>
+
+          <p>After 30 years of ministry, I realize that what matters to God is obedience. All that other religious pomp
+            and circumstance is going to get a whole generation cast away.</p>
+          <p>Please people heed the coming warnings about the coming of our Lord. He is soon to return in judgement.
+            Don’t be on the wrong side of His wrath.</p>
+          <p>Modern religious systems lift up everything except God. Don’t be deceived. The enemy has perfected
+            deception. Don’t be fooled.</p>
+        </div>
+
+        <p class="mt-10 text-right font-script text-2xl text-[#011e31]">– Gregory S. Chatman</p>
+      </div>
+    </div>
+
+    <!-- Font + Style -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+      .font-script {
+        font-family: 'Great Vibes', cursive;
+      }
+
+      @media (max-width: 768px) {
+        .absolute.-top-10.-left-10 {
+          top: -2rem;
+          left: -1rem;
+          width: 6rem;
+        }
+      }
+    </style>
+  </section>
+
+  <section id="sermons" class="bg-white py-20 px-6 md:px-16 animate-fade-in" x-data="{ open: false, videoUrl: '' }">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+        Watch Sermons & Shorts
+      </h2>
+      <div class="w-20 h-1 bg-[#770000] mb-6"></div>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+
+      </p>
+
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
+        <div @click="open = true; videoUrl = 'https://www.youtube.com/embed/l0QZybQkFco?autoplay=1'"
+          class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
+          <img src="/images/Isaiah chapter 6.jpg" alt="Sermon"
+            class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
+          <div
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
+              <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
+            </svg>
+          </div>
+          <div class="bg-white px-4 py-3">
+            <h3 class="font-semibold text-lg text-[#011e31]">Isaiah Chapter 6 • High & Lifted Up</h3>
+            <p class="text-sm text-gray-500">A message of reverence, awakening, and the holiness of God.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div @click="open = true; videoUrl = 'https://www.youtube.com/embed/QqHjzeEonYI?autoplay=1'"
+          class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
+          <img src="/images/Isaiah 51 12.jpg" alt="Sermon"
+            class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
+          <div
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
+              <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
+            </svg>
+          </div>
+          <div class="bg-white px-4 py-3">
+            <h3 class="font-semibold text-lg text-[#011e31]">If Your Life Isn't Perfect, Watch This</h3>
+            <p class="text-sm text-gray-500">If you are seeking answers in life, google and artificial intelligence may
+              not be the best place to look. One of the reasons for that is because at your core you are part spirit,
+              part flesh. No amount of ones and zeroes can help that part of you. No matter how hard you try. If you
+              keep searching, I promise you will find what you are searching for.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div @click="open = true; videoUrl = 'https://www.youtube.com/embed/S-7TkoHFfz8?autoplay=1'"
+          class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
+          <img src="/images/Gods Will.jpg" alt="Sermon"
+            class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
+          <div
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
+              <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
+            </svg>
+          </div>
+          <div class="bg-white px-4 py-3">
+            <h3 class="font-semibold text-lg text-[#011e31]">What is God's Will For My Life?</h3>
+            <p class="text-sm text-gray-500">Have you ever tried to figure out what you should do or where to turn in
+              difficult times? Take a couple minutes and change your life. Religion has failed the world because of
+              spiritual wickedness. Do not let what someone else has done affect your relationship with God!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black bg-opacity-80" @click="open = false; videoUrl = ''"></div>
+
+        <!-- Modal Content -->
+        <div class="relative z-10 w-full max-w-3xl aspect-video bg-black rounded-lg overflow-hidden">
+          <iframe :src="videoUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+            class="w-full h-full"></iframe>
+          <button @click="open = false; videoUrl = ''"
+            class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500">
+            &times;
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey" class="bg-[#011e31] text-white py-24 px-6 overflow-hidden">
+    <div class="max-w-7xl mx-auto text-center animate-fade-in">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">Gregory’s Journey: From Religion
+        to Sincerity</h2>
+      <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-4">
+        Greg's journey is not just a path—it’s a transformation, from religious performance to a deeper walk with God.
+      </p>
+      <p class="text-lg md:text-xl italic text-white">“He who has an ear, let him hear what the Spirit says.”</p>
+    </div>
+
+    <!-- Horizontal Journey Timeline -->
+    <div class="max-w-7xl mx-auto mt-12">
+      <div class="flex flex-wrap justify-center gap-10">
+        <div class="journey-step bg-white p-6 rounded-md shadow-md max-w-xs w-full text-center">
+          <div class="text-[#770000] font-bold text-lg mb-2">Step 1: The Calling</div>
+          <p class="text-sm text-gray-700">In the early 1990s, Greg received his calling by the late Dr. Mattie Moss
+            Clark in Atlanta, GA. This was just the beginning of a spiritual journey that would shape his life and
+            ministry.</p>
+        </div>
+
+        <div class="journey-step bg-white p-6 rounded-md shadow-md max-w-xs w-full text-center">
+          <div class="text-[#770000] font-bold text-lg mb-2">Step 2: Obedience Over Religion</div>
+          <p class="text-sm text-gray-700">Instead of adhering to religious dogma, Greg embraced the calling to preach
+            God's word directly—eschewing denominational boundaries for a personal, sincere relationship with Christ.
+          </p>
+        </div>
+
+        <div class="journey-step bg-white p-6 rounded-md shadow-md max-w-xs w-full text-center">
+          <div class="text-[#770000] font-bold text-lg mb-2">Step 3: Spreading the Message</div>
+          <p class="text-sm text-gray-700">Greg's ministry grew as he began to speak about true obedience to the Word,
+            warning others about spiritual deception and calling everyone to a true, sincere walk with God.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-[#f9f9f6] text-[#011e31] py-24 px-6 overflow-hidden">
+    <div class="max-w-5xl mx-auto text-center animate-fade-in">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">This is a call to every soul.
+      </h2>
+      <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-4">
+        God is calling. Not to religion, but to obedience. Not to performance, but to truth. This message is for every
+        person on earth — including you.
+      </p>
+      <p class="text-lg md:text-xl italic text-white">“He who has an ear, let him hear what the Spirit says.”</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-sm py-8 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">&copy; 2025 Gregory S Chatman. All rights reserved.</div>
+      <div class="space-x-4">
+        <a href="#about" class="hover:text-[#770000]">About</a>
+        <a href="#sermons" class="hover:text-[#770000]">Sermons + Shorts</a>
+        <a href="#journey" class="hover:text-[#770000]">Journey</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
