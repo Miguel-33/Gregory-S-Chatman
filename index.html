@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gregory S Chatman</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js -->
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 
   <style>
     html {
@@ -17,29 +19,26 @@
       font-family: 'Inter', sans-serif;
     }
 
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
 
-      .animate-fade-in {
-        animation: fade-in 1.2s ease-out both;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 1.2s ease-out both;
+    }
   </style>
 </head>
 
 <body class="text-gray-900">
-  <!-- Alpine.js for toggle -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-  <header class="bg-[#011e31] text-white sticky top-0 z-50 shadow-md" x-data="{ open: false }"
+  <header class="bg-[#f9f9f6] text-white sticky top-0 z-50 shadow-md" x-data="{ open: false }"
     @click.outside="open = false">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -49,7 +48,7 @@
       </div>
 
       <!-- Hamburger / Close Icon -->
-      <button @click="open = !open" class="md:hidden text-white focus:outline-none z-50 relative">
+      <button @click="open = !open" class="md:hidden text-[#770000] focus:outline-none z-50 relative">
         <template x-if="!open">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -64,20 +63,20 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-6 text-sm">
-        <a href="#about" class="hover:text-[#770000] transition-colors">About</a>
-        <a href="#sermons" class="hover:text-[#770000] transition-colors">Sermons + Shorts</a>
-        <a href="#journey" class="hover:text-[#770000] transition-colors">Journey</a>
+        <a href="#about" class="text-[#770000] transition-colors">About</a>
+        <a href="#sermons" class="text-[#770000] transition-colors">Sermons + Shorts</a>
+        <a href="#journey" class="text-[#770000] transition-colors">Journey</a>
       </nav>
     </div>
 
     <!-- Mobile Menu -->
     <div x-show="open" x-transition class="md:hidden px-6 pb-4 space-y-2" @click="open = false">
-      <a href="#about" class="block py-2 hover:text-[#770000] transition-colors">About</a>
-      <a href="#sermons" class="block py-2 hover:text-[#770000] transition-colors">Sermons + Shorts</a>
-      <a href="#journey" class="block py-2 hover:text-[#770000] transition-colors">Journey</a>
+      <a href="#about" class="block py-2 text-[#770000] transition-colors">About</a>
+      <a href="#sermons" class="block py-2 text-[#770000] transition-colors">Sermons + Shorts</a>
+      <a href="#journey" class="block py-2 text-[#770000] transition-colors">Journey</a>
     </div>
   </header>
-
+  
   <section class="relative bg-[#f9f9f6] text-[#011e31] py-16 md:py-18 px-6 md:px-20 overflow-hidden animate-fade-in">
     <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
 
@@ -106,7 +105,7 @@
       <!-- Image Section -->
       <div class="md:col-span-5 relative z-10">
         <div class="rounded-xl shadow-xl border border-gray-200">
-          <img src="images/GSC Book Cover.jpeg" alt="Book Cover" class="w-full h-auto rounded-md">
+          <img src="images/GSC Book Cover.jpeg" alt="Book Cover" loading="lazy" class="w-full h-auto rounded-md">
         </div>
       </div>
     </div>
@@ -119,7 +118,7 @@
       </h2>
     </div>
   </section>
-
+ 
   <section id="about" class="relative bg-[#011e31] py-24 px-6 md:px-16 text-white overflow-visible animate-fade-in">
     <div class="max-w-5xl mx-auto relative flex flex-col items-center">
 
@@ -133,7 +132,7 @@
         </div>
 
 
-        <h2 class="text-2xl md:text-3xl font-semibold italic mb-6 text-gray-700 text-right">
+        <h2 class="text-2xl md:text-3xl md:ml-28 font-semibold italic mb-6 text-gray-700 text-right leading-relaxed">
           A message from Gregory S. Chatman
         </h2>
 
@@ -187,97 +186,107 @@
           width: 6rem;
         }
       }
+
+      @media (max-width: 640px) {
+        .absolute.-top-10.-left-10 {
+          top: -5rem;
+          left: 3rem;
+          transform: translateX(-50%);
+          width: 6rem;
+        }
+
+      }
     </style>
   </section>
 
-  <section id="sermons" class="bg-white py-20 px-6 md:px-16 animate-fade-in" x-data="{ open: false, videoUrl: '' }">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-        Watch Sermons & Shorts
-      </h2>
-      <div class="w-20 h-1 bg-[#770000] mb-6"></div>
-      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+  <!-- Parent Alpine scope -->
+  <div x-data="{ open: false, videoUrl: '' }">
 
-      </p>
+    <section id="sermons" class="bg-white py-20 px-6 md:px-16 animate-fade-in" x-data="{ open: false, videoUrl: '' }">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+          Watch Sermons & Shorts
+        </h2>
+        <div class="w-20 h-1 bg-[#770000] mb-6"></div>
+  
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Example card -->
+          <div @click="open = true; videoUrl = 'https://www.youtube.com/embed/l0QZybQkFco?autoplay=1'; document.getElementById('bgMusic')?.pause()"
+            class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
+            <img src="images/Isaiah chapter 6.jpg" alt="Sermon"
+              class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
+            <div
+              class="absolute inset-0 items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+              <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
+                <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
+              </svg>
+            </div>
+            <div class="bg-white px-4 py-3">
+              <h3 class="font-semibold text-lg text-[#011e31]">Isaiah Chapter 6 • High & Lifted Up</h3>
+              <p class="text-sm text-gray-500">A message of reverence, awakening, and the holiness of God.</p>
+            </div>
+          </div>
 
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Card 1 -->
-        <div @click="open = true; videoUrl = 'https://www.youtube.com/embed/l0QZybQkFco?autoplay=1'"
-          class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
-          <img src="images/Isaiah chapter 6.jpg" alt="Sermon"
-            class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
-          <div
-            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-            <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
-              <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
-            </svg>
-          </div>
-          <div class="bg-white px-4 py-3">
-            <h3 class="font-semibold text-lg text-[#011e31]">Isaiah Chapter 6 • High & Lifted Up</h3>
-            <p class="text-sm text-gray-500">A message of reverence, awakening, and the holiness of God.</p>
-          </div>
-        </div>
+<!-- Card 2 -->
+<div @click="open = true; videoUrl = 'https://www.youtube.com/embed/QqHjzeEonYI?autoplay=1'; document.getElementById('bgMusic')?.pause()"
+ class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
+ <img src="images/Isaiah 51 12.jpg" alt="Sermon"
+   class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
+   <div
+   class="absolute inset-0 items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+   <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+     <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
+     <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
+   </svg>
+ </div>
+ <div class="bg-white px-4 py-3">
+   <h3 class="font-semibold text-lg text-[#011e31]">If Your Life Isn't Perfect, Watch This</h3>
+   <p class="text-sm text-gray-500">If you're seeking answers in life, no AI can feed the spirit—only The Word.</p>
+ </div>
+</div>
 
-        <!-- Card 2 -->
-        <div @click="open = true; videoUrl = 'https://www.youtube.com/embed/QqHjzeEonYI?autoplay=1'"
-          class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
-          <img src="images/Isaiah 51 12.jpg" alt="Sermon"
-            class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
-          <div
-            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-            <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
-              <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
-            </svg>
-          </div>
-          <div class="bg-white px-4 py-3">
-            <h3 class="font-semibold text-lg text-[#011e31]">If Your Life Isn't Perfect, Watch This</h3>
-            <p class="text-sm text-gray-500">If you are seeking answers in life, google and artificial intelligence may
-              not be the best place to look. One of the reasons for that is because at your core you are part spirit,
-              part flesh. No amount of ones and zeroes can help that part of you. No matter how hard you try. If you
-              keep searching, I promise you will find what you are searching for.</p>
-          </div>
-        </div>
+<!-- Card 3 -->
+<div @click="open = true; videoUrl = 'https://www.youtube.com/embed/S-7TkoHFfz8?autoplay=1'; document.getElementById('bgMusic')?.pause()"
+ class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
+ <img src="images/Gods Will.jpg" alt="Sermon"
+   class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
+   <div
+   class="absolute inset-0 items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+   <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+     <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
+     <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
+   </svg>
+ </div>
+ <div class="bg-white px-4 py-3">
+   <h3 class="font-semibold text-lg text-[#011e31]">What is God's Will For My Life?</h3>
+   <p class="text-sm text-gray-500">Find direction through truth—not religion, not traditions—God’s Word alone.</p>
+ </div>
+</div>
+</div>
+</div>
 
-        <!-- Card 3 -->
-        <div @click="open = true; videoUrl = 'https://www.youtube.com/embed/S-7TkoHFfz8?autoplay=1'"
-          class="cursor-pointer relative group rounded-lg overflow-hidden shadow-md">
-          <img src="images/Gods Will.jpg" alt="Sermon"
-            class="w-full h-64 object-cover group-hover:brightness-75 transition duration-300" />
-          <div
-            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-            <svg class="h-16 w-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M10 8.64v6.72L15.27 12 10 8.64z" />
-              <path d="M21 3H3c-1.1 0-2 .9-2 2v14a2 2 0 002 2h18c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zM3 19V5h18v14H3z" />
-            </svg>
-          </div>
-          <div class="bg-white px-4 py-3">
-            <h3 class="font-semibold text-lg text-[#011e31]">What is God's Will For My Life?</h3>
-            <p class="text-sm text-gray-500">Have you ever tried to figure out what you should do or where to turn in
-              difficult times? Take a couple minutes and change your life. Religion has failed the world because of
-              spiritual wickedness. Do not let what someone else has done affect your relationship with God!</p>
-          </div>
-        </div>
-      </div>
+<template x-if="open">
+  <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center"
+    style="backdrop-filter: blur(2px);" role="dialog" aria-modal="true" aria-label="Sermon video modal">
+    
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black bg-opacity-80" @click="open = false; videoUrl = ''"></div>
 
-      <!-- Modal -->
-      <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black bg-opacity-80" @click="open = false; videoUrl = ''"></div>
-
-        <!-- Modal Content -->
-        <div class="relative z-10 w-full max-w-3xl aspect-video bg-black rounded-lg overflow-hidden">
-          <iframe :src="videoUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
-            class="w-full h-full"></iframe>
-          <button @click="open = false; videoUrl = ''"
-            class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500">
-            &times;
-          </button>
-        </div>
-      </div>
+    <!-- Modal Content -->
+    <div class="relative z-10 w-full max-w-3xl aspect-video bg-black rounded-lg overflow-hidden">
+      <iframe :src="videoUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+        class="w-full h-full"></iframe>
+      <button @click="open = false; videoUrl = ''"
+        class="absolute top-2 right-2 text-white text-3xl font-bold hover:text-red-500">
+        &times;
+      </button>
     </div>
-  </section>
+  </div>
+</template>
+</section>
+
+  
 
   <section id="journey" class="bg-[#011e31] text-white py-24 px-6 overflow-hidden">
     <div class="max-w-7xl mx-auto text-center animate-fade-in">
@@ -338,6 +347,51 @@
     </div>
   </footer>
 
+  <!-- Background Audio (no autoplay) -->
+<audio id="bgMusic" loop class="hidden">
+  <source src="audio/SmoothIntroOutro.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Floating Play/Pause Button -->
+<button id="musicToggle"
+  class="fixed bottom-6 right-6 bg-[#011e31] text-white rounded-full p-3 shadow-lg z-50 hover:bg-[#770000] transition"
+  aria-label="Toggle Music">
+  <svg id="musicIconPlay" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path d="M5 3v18l15-9L5 3z" />
+  </svg>
+  <svg id="musicIconPause" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path d="M6 4h4v16H6zM14 4h4v16h-4z" />
+  </svg>
+</button>
+
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const toggleBtn = document.getElementById('musicToggle');
+    const iconPlay = document.getElementById('musicIconPlay');
+    const iconPause = document.getElementById('musicIconPause');
+  
+    // Ensure audio can play on first interaction if autoplay fails
+    document.body.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    }, { once: true });
+  
+    toggleBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        iconPlay.classList.add('hidden');
+        iconPause.classList.remove('hidden');
+      } else {
+        audio.pause();
+        iconPause.classList.add('hidden');
+        iconPlay.classList.remove('hidden');
+      }
+    });
+  </script>
+  
 </body>
 
 </html>
